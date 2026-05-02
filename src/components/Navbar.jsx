@@ -1,10 +1,11 @@
 import { useState, useEffect } from "react";
 import { Menu, Phone, X } from "lucide-react";
-import { Container, PrimaryButton } from "./ui.jsx";
+import { PrimaryButton } from "./ui.jsx";
 
 const navItems = [
   { label: "Services", href: "#services" },
   { label: "How it Works", href: "#how-it-works" },
+  { label: "About Us", href: "#about" },
   { label: "Contact", href: "#contact" }
 ];
 
@@ -25,10 +26,10 @@ export default function Navbar() {
       className={`sticky top-0 z-50 transition-all duration-300 ${
         isScrolled 
           ? "bg-white/30 backdrop-blur-md shadow-sm border-b border-orange-100/60" 
-          : "bg-white border-b border-transparent"
+          : "bg-[#fff8f2] border-b border-transparent"
       }`}
     >
-      <Container className="flex h-[88px] items-center justify-between py-4">
+      <div className="mx-auto flex h-[96px] w-full max-w-[1536px] items-center justify-between px-5 py-4 md:px-10 lg:px-12">
         <a href="#" className="flex items-center gap-3">
           <img
             src="/generated-images/logo-hanuman.png"
@@ -61,7 +62,7 @@ export default function Navbar() {
         >
           {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
         </button>
-      </Container>
+      </div>
 
       {open ? (
         <div className="border-t border-orange-100 bg-white px-4 py-4 shadow-lg lg:hidden">
