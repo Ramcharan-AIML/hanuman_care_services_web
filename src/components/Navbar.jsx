@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Menu, Phone, X } from "lucide-react";
 import { Container, PrimaryButton } from "./ui.jsx";
 
@@ -10,24 +10,36 @@ const navItems = [
 
 export default function Navbar() {
   const [open, setOpen] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 20);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <header className="sticky top-0 z-50 border-b border-orange-100/60 bg-white/95 backdrop-blur">
+    <header 
+      className={`sticky top-0 z-50 transition-all duration-300 ${
+        isScrolled 
+          ? "bg-white/30 backdrop-blur-md shadow-sm border-b border-orange-100/60" 
+          : "bg-white border-b border-transparent"
+      }`}
+    >
       <Container className="flex h-[88px] items-center justify-between py-4">
         <a href="#" className="flex items-center gap-3">
           <img
-            src="/generated-images/hanuman-logo-mark.png"
-            alt="Hanuman Care Services"
-            className="h-16 w-[82px] object-contain"
+            src="/generated-images/logo-hanuman.png"
+            alt="Hanuman Care Services Logo"
+            className="w-[64px] h-auto object-contain md:w-[62px]"
           />
-          <div className="leading-none">
-            <div className="text-2xl font-extrabold tracking-normal text-[#f45113]">HANUMAN</div>
-            <div className="flex items-center gap-2 text-xs font-bold text-dark">
-              <span className="h-px w-2 bg-primary" />
-              CARE SERVICES
-              <span className="h-px w-2 bg-primary" />
-            </div>
-          </div>
+          <img
+            src="/generated-images/hanuman-name.png"
+            alt="Hanuman Care Services Name"
+            className="w-[120px] h-auto object-contain md:w-[150px]"
+          />
         </a>
 
         <nav className="hidden items-center gap-10 text-sm font-medium text-dark lg:flex">

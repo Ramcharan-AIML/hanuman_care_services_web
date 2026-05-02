@@ -12,7 +12,7 @@ import Footer from "./components/Footer.jsx";
 
 export default function App() {
   return (
-    <div className="min-h-screen overflow-hidden bg-white text-dark">
+    <div className="min-h-screen overflow-clip bg-white text-dark">
       <Navbar />
       <main>
         <HeroSection />
