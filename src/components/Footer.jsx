@@ -23,16 +23,17 @@ export default function Footer() {
         <div className="grid gap-10 lg:grid-cols-[1.2fr_2fr_1.3fr]">
           <div>
             <a href="#" className="flex items-center gap-3">
-              <img src="/generated-images/hanuman-logo-mark.png" alt="Hanuman Care Services" className="h-16 w-[82px] object-contain" />
-              <div className="leading-none">
-                <div className="text-2xl font-extrabold text-[#f45113]">HANUMAN</div>
-                <div className="flex items-center gap-2 text-xs font-bold">
-                  <span className="h-px w-7 bg-primary" />
-                  CARE SERVICES
-                  <span className="h-px w-7 bg-primary" />
-                </div>
-              </div>
-            </a>
+          <img
+            src="/generated-images/logo-hanuman.png"
+            alt="Hanuman Care Services Logo"
+            className="w-[64px] h-auto object-contain md:w-[62px]"
+          />
+          <img
+            src="/generated-images/hanuman-name.png"
+            alt="Hanuman Care Services Name"
+            className="w-[120px] h-auto object-contain md:w-[150px]"
+          />
+        </a>
             <p className="mt-6 max-w-[220px] text-sm leading-6 text-white/80">
               Compassionate care for your loved ones.
             </p>

@@ -222,7 +222,7 @@ export default function HeroSection() {
       <div className="mx-auto w-full max-w-[1536px] px-0 sm:px-4 lg:px-0">
         <div className="relative min-h-[860px] overflow-hidden bg-[#fff8f2] shadow-sm md:min-h-[920px] md:rounded-[2px] lg:h-[calc(100vh-96px)] lg:min-h-[820px] lg:max-h-[928px]">
           <img
-            src="/generated-images/hero-care_4.png"
+            src="/generated-images/background-image-hero.png"
             alt=""
             aria-hidden="true"
             className="absolute inset-0 h-full w-full object-cover object-top"
@@ -257,6 +257,19 @@ export default function HeroSection() {
 
           <BenefitRail />
           <PhoneMockup />
+
+          <motion.div
+            initial={{ opacity: 0, y: 80 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
+            className="absolute inset-x-0 bottom-0 z-10 mx-auto flex justify-center pointer-events-none px-4 md:px-0"
+          >
+            <img
+              src="/generated-images/women-aunt-hero.png"
+              alt="Caregiver supporting an elderly woman"
+              className="w-full max-w-[960px] object-contain drop-shadow-[0_20px_40px_rgba(31,41,55,0.12)] pointer-events-auto"
+            />
+          </motion.div>
 
           <motion.div
             initial={{ opacity: 0, scale: 0.92 }}
