@@ -48,7 +48,6 @@ const appTiles = [
   { icon: Heart, label: "Caregiver", sub: "Support" }
 ];
 
-const avatarColors = ["#6b3a24", "#f1b083", "#26364f", "#e0a06b"];
 
 function StoreImageButton({ type }) {
   const isApple = type === "apple";
@@ -216,6 +215,114 @@ function StatsBar() {
   );
 }
 
+function HeroGlow() {
+  /*
+   * Warm floating bokeh particles — soft circles in the orange/amber/gold palette
+   * that gently float upward and pulse behind the hero image.
+   * Each particle: x%, y%, size, color, delay, duration, drift direction
+   */
+  const particles = [
+    // Left side particles
+    { x: "8%",  y: "72%", size: 120, color: "#f4511320", delay: 0,   dur: 6,  dx: -18, dy: -35 },
+    { x: "15%", y: "85%", size: 80,  color: "#e6832018", delay: 0.4, dur: 7,  dx: -12, dy: -28 },
+    { x: "5%",  y: "60%", size: 60,  color: "#f59e0b15", delay: 0.8, dur: 8,  dx: -22, dy: -20 },
+    { x: "22%", y: "78%", size: 100, color: "#f4731318", delay: 1.2, dur: 6.5,dx: -8,  dy: -32 },
+    { x: "12%", y: "55%", size: 45,  color: "#e0781420", delay: 1.6, dur: 7.5,dx: -15, dy: -18 },
+
+    // Center-left particles (behind image)
+    { x: "30%", y: "80%", size: 90,  color: "#f4511315", delay: 0.3, dur: 7,  dx: -6,  dy: -30 },
+    { x: "38%", y: "70%", size: 55,  color: "#f59e0b12", delay: 0.9, dur: 8,  dx: -4,  dy: -22 },
+    { x: "35%", y: "90%", size: 70,  color: "#e6832015", delay: 1.5, dur: 6,  dx: -10, dy: -25 },
+
+    // Center-right particles (behind image)
+    { x: "62%", y: "80%", size: 90,  color: "#f4511315", delay: 0.2, dur: 7,  dx: 6,   dy: -30 },
+    { x: "58%", y: "68%", size: 55,  color: "#f59e0b12", delay: 1.0, dur: 8,  dx: 4,   dy: -22 },
+    { x: "65%", y: "92%", size: 70,  color: "#e6832015", delay: 1.4, dur: 6,  dx: 10,  dy: -25 },
+
+    // Right side particles
+    { x: "85%", y: "70%", size: 110, color: "#f4511320", delay: 0.1, dur: 6.5,dx: 18,  dy: -34 },
+    { x: "78%", y: "82%", size: 75,  color: "#e6832018", delay: 0.5, dur: 7,  dx: 14,  dy: -26 },
+    { x: "92%", y: "62%", size: 55,  color: "#f59e0b15", delay: 0.7, dur: 8,  dx: 20,  dy: -18 },
+    { x: "75%", y: "75%", size: 95,  color: "#f4731318", delay: 1.1, dur: 6.5,dx: 10,  dy: -30 },
+    { x: "88%", y: "55%", size: 40,  color: "#e0781420", delay: 1.8, dur: 7.5,dx: 16,  dy: -15 },
+
+    // Extra accent particles (tiny sparkles)
+    { x: "20%", y: "65%", size: 25, color: "#fbbf2425", delay: 0.6, dur: 5,   dx: -6,  dy: -14 },
+    { x: "45%", y: "88%", size: 30, color: "#fbbf2420", delay: 1.3, dur: 5.5, dx: 2,   dy: -16 },
+    { x: "55%", y: "85%", size: 28, color: "#fbbf2420", delay: 0.8, dur: 5.5, dx: -2,  dy: -16 },
+    { x: "80%", y: "63%", size: 22, color: "#fbbf2425", delay: 1.7, dur: 5,   dx: 8,   dy: -12 },
+  ];
+
+  /* Soft radial light bursts behind the sofa area */
+  const glowSpots = [
+    { x: "42%", y: "75%", size: 320, color: "#f4511308", delay: 0.2, dur: 4 },
+    { x: "58%", y: "78%", size: 280, color: "#e6832008", delay: 0.5, dur: 4.5 },
+    { x: "50%", y: "85%", size: 400, color: "#f59e0b06", delay: 0,   dur: 5 },
+  ];
+
+  return (
+    <div className="absolute inset-0 pointer-events-none overflow-hidden">
+      {/* Background glow spots — large, soft radial gradients */}
+      {glowSpots.map((spot, i) => (
+        <motion.div
+          key={`glow-${i}`}
+          className="absolute rounded-full"
+          style={{
+            left: spot.x,
+            top: spot.y,
+            width: spot.size,
+            height: spot.size,
+            transform: "translate(-50%, -50%)",
+            background: `radial-gradient(circle, ${spot.color} 0%, transparent 70%)`,
+          }}
+          initial={{ opacity: 0, scale: 0.6 }}
+          animate={{
+            opacity: [0, 1, 0.7, 1, 0],
+            scale: [0.6, 1, 1.15, 1, 0.6],
+          }}
+          transition={{
+            duration: spot.dur,
+            delay: spot.delay,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+
+      {/* Floating bokeh particles */}
+      {particles.map((p, i) => (
+        <motion.div
+          key={`particle-${i}`}
+          className="absolute rounded-full"
+          style={{
+            left: p.x,
+            top: p.y,
+            width: p.size,
+            height: p.size,
+            background: `radial-gradient(circle, ${p.color} 0%, transparent 70%)`,
+            filter: "blur(1px)",
+          }}
+          initial={{ opacity: 0, x: 0, y: 0, scale: 0.3 }}
+          animate={{
+            opacity: [0, 0.8, 0.5, 0.8, 0],
+            x: [0, p.dx * 0.4, p.dx * 0.8, p.dx],
+            y: [0, p.dy * 0.3, p.dy * 0.7, p.dy],
+            scale: [0.3, 1, 1.1, 0.9, 0.3],
+          }}
+          transition={{
+            duration: p.dur,
+            delay: p.delay,
+            repeat: Infinity,
+            repeatType: "loop",
+            ease: "easeInOut",
+          }}
+        />
+      ))}
+    </div>
+  );
+}
+
 export default function HeroSection() {
   return (
     <section className="relative bg-white pb-16 md:pb-20">
@@ -257,6 +364,10 @@ export default function HeroSection() {
 
           <BenefitRail />
           <PhoneMockup />
+
+          {/* Warm ambient glow behind the hero image */}
+          <HeroGlow />
+
           <motion.div
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
