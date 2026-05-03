@@ -9,11 +9,13 @@ import Testimonials from "./components/Testimonials.jsx";
 import ContactSection from "./components/ContactSection.jsx";
 import PromiseBanner from "./components/PromiseBanner.jsx";
 import Footer from "./components/Footer.jsx";
+import FloatingAppBanner from "./components/FloatingAppBanner.jsx";
 
 export default function App() {
   return (
     <div className="min-h-screen overflow-clip bg-white text-dark">
       <Navbar />
+      <FloatingAppBanner />
       <main>
         <HeroSection />
         <ProblemSection />
