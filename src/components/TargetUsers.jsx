@@ -6,25 +6,25 @@ import { Container, Eyebrow, Reveal } from "./ui.jsx";
 const users = [
   {
     icon: BriefcaseBusiness,
-    image: "/generated-images/target-nri.png",
+    image: "/generated-images/target-nri.webp",
     title: "NRI Families",
     description: "Stay connected and worry-free knowing your loved ones are in safe hands."
   },
   {
     icon: UserRound,
-    image: "/generated-images/target-working.png",
+    image: "/generated-images/target-working.webp",
     title: "Working Professionals",
     description: "Reliable care support for your loved ones while you focus on your work."
   },
   {
     icon: Heart,
-    image: "/generated-images/target-elderly.png",
+    image: "/generated-images/target-elderly.webp",
     title: "Elderly People",
     description: "Compassionate care to help elders live safely, comfortably and happily."
   },
   {
     icon: ShieldPlus,
-    image: "/generated-images/target-patient.png",
+    image: "/generated-images/target-patient.webp",
     title: "Patients",
     description: "Support for recovery with regular check-ins, medication reminders and assistance."
   }

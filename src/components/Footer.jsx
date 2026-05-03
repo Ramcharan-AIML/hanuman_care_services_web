@@ -24,12 +24,12 @@ export default function Footer() {
           <div>
             <a href="#" className="flex items-center gap-3">
           <img
-            src="/generated-images/logo-hanuman.png"
+            src="/generated-images/logo-hanuman.webp"
             alt="Hanuman Care Services Logo"
             className="w-[64px] h-auto object-contain md:w-[62px]"
           />
           <img
-            src="/generated-images/hanuman-name.png"
+            src="/generated-images/hanuman-name.webp"
             alt="Hanuman Care Services Name"
             className="w-[120px] h-auto object-contain md:w-[150px]"
           />

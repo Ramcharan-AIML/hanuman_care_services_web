@@ -8,7 +8,7 @@ const problems = [
     number: "01",
     title: "Emergencies with no help",
     description: "When sudden health issues or accidents strike, immediate care is crucial.",
-    image: "/generated-images/problem-emergency.png",
+    image: "/generated-images/problem-emergency.webp",
     icon: Ambulance,
     reverse: false
   },
@@ -16,7 +16,7 @@ const problems = [
     number: "02",
     title: "Far from family",
     description: "Distance creates stress and helplessness when elders live alone.",
-    image: "/generated-images/problem-distance.png",
+    image: "/generated-images/problem-distance.webp",
     icon: Plane,
     reverse: true
   },
@@ -24,7 +24,7 @@ const problems = [
     number: "03",
     title: "Untrusted caregivers",
     description: "Finding safe and reliable support is difficult for families apart.",
-    image: "/generated-images/problem-trust.png",
+    image: "/generated-images/problem-trust.webp",
     icon: ShieldCheck,
     reverse: false
   }

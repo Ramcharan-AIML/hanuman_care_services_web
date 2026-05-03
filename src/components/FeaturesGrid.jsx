@@ -23,19 +23,19 @@ const features = [
 
 export default function FeaturesGrid() {
   return (
-    <Reveal className="mt-8 rounded-2xl border border-border bg-white p-7 shadow-soft md:p-10">
-      <div className="grid gap-y-10 sm:grid-cols-2 lg:grid-cols-4">
+    <Reveal className="mt-8 rounded-2xl border border-border bg-white p-5 md:p-10 shadow-soft">
+      <div className="grid grid-cols-2 gap-y-8 sm:gap-y-10 lg:grid-cols-4">
         {features.map((feature, index) => {
           const Icon = feature.icon;
           return (
             <div
               key={feature.label}
-              className={`flex min-h-24 flex-col items-center justify-center text-center ${
+              className={`flex min-h-24 flex-col items-center justify-center text-center p-2 ${
                 index % 4 !== 0 ? "lg:border-l lg:border-border" : ""
-              } ${index % 2 !== 0 ? "sm:border-l sm:border-border lg:border-l" : ""}`}
+              } ${index % 2 !== 0 ? "border-l border-border" : ""}`}
             >
-              <Icon className="mb-4 h-10 w-10 text-primary" strokeWidth={1.8} />
-              <p className="text-base font-bold text-[#071526]">{feature.label}</p>
+              <Icon className="mb-3 md:mb-4 h-8 w-8 md:h-10 md:w-10 text-primary" strokeWidth={1.8} />
+              <p className="text-sm sm:text-base font-bold text-[#071526]">{feature.label}</p>
             </div>
           );
         })}

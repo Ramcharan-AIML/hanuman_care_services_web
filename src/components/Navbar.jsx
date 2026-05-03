@@ -33,12 +33,12 @@ export default function Navbar() {
       <div className="mx-auto flex h-[96px] w-full max-w-[1536px] items-center justify-between px-5 py-4 md:px-10 lg:px-12">
         <a href="#" className="flex items-center gap-2 md:gap-3">
           <img
-            src="/generated-images/logo-hanuman.png"
+            src="/generated-images/logo-hanuman.webp"
             alt="Hanuman Care Services Logo"
             className="w-[48px] sm:w-[54px] md:w-[62px] h-auto object-contain"
           />
           <img
-            src="/generated-images/hanuman-name.png"
+            src="/generated-images/hanuman-name.webp"
             alt="Hanuman Care Services Name"
             className="w-[96px] sm:w-[110px] md:w-[150px] h-auto object-contain"
           />

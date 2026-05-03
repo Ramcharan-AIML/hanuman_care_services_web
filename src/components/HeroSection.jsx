@@ -60,7 +60,7 @@ function StoreImageButton({ type }) {
       className="block rounded-xl shadow-[0_16px_35px_rgba(0,0,0,0.2)] transition"
     >
       <img
-        src={isApple ? "/generated-images/app-store.png" : "/generated-images/google-play.png"}
+        src={isApple ? "/generated-images/app-store.webp" : "/generated-images/google-play.webp"}
         alt={isApple ? "Download on the App Store" : "Get it on Google Play"}
         className={`${isApple ? "h-[60px] w-[176px]" : "h-[60px] w-[194px]"} rounded-xl object-fill`}
       />
@@ -157,10 +157,10 @@ function PhoneMockup({ parallaxStyle }) {
 
 function SocialProof() {
   const socialImages = [
-    "/generated-images/social-1.jpg",
-    "/generated-images/social-2.jpg",
-    "/generated-images/social-3.jpg",
-    "/generated-images/social-4.jpg"
+    "/generated-images/social-1.webp",
+    "/generated-images/social-2.webp",
+    "/generated-images/social-3.webp",
+    "/generated-images/social-4.webp"
   ];
 
   return (
@@ -334,7 +334,7 @@ export default function HeroSection() {
   
   // Text parallax
   const textY = useTransform(scrollY, [0, 800], [0, 120]);
-  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+  const textOpacity = useTransform(scrollY, [0, 650], [1, 0]);
   
   // Horizontal Slide-Out effects
   const slideLeftX = useTransform(scrollY, [0, 600], [0, -300]);
@@ -347,9 +347,11 @@ export default function HeroSection() {
         <div className="relative overflow-hidden bg-[#fff8f2] shadow-sm md:rounded-[2px] lg:h-[calc(100vh-96px)] lg:min-h-[820px] lg:max-h-[928px] pb-12 sm:pb-16 lg:pb-0">
           <motion.img
             style={{ y: bgY }}
-            src="/generated-images/background-image-hero.png"
+            src="/generated-images/background-image-hero.webp"
             alt=""
             aria-hidden="true"
+            fetchpriority="high"
+            loading="eager"
             className="absolute inset-0 h-[115%] w-full object-cover object-top"
           />
           <div className="absolute inset-x-0 top-0 h-[46%] bg-gradient-to-b from-white/40 via-white/8 to-transparent" />
@@ -395,8 +397,11 @@ export default function HeroSection() {
             className="relative z-10 mx-auto mt-8 flex w-full justify-center pointer-events-none px-4 sm:mt-12 md:px-0 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0"
           >
             <img
-              src="/generated-images/women-aunt-hero.png"
+              src="/generated-images/women-aunt-hero.webp"
               alt="Caregiver supporting an elderly woman"
+              fetchpriority="high"
+              loading="eager"
+              decoding="sync"
               className="w-full max-w-[960px] object-contain drop-shadow-[0_20px_40px_rgba(31,41,55,0.12)] pointer-events-auto"
             />
           </motion.div>

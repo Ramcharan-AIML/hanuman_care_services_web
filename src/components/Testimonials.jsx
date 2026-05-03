@@ -9,21 +9,21 @@ const testimonials = [
       "Hanuman Care Services has been a blessing for our family. Their quick response and compassionate care have given us immense peace of mind while living abroad.",
     name: "Meena S.",
     role: "NRI, USA",
-    image: "/generated-images/target-working.png"
+    image: "/generated-images/target-working.webp"
   },
   {
     quote:
       "The caregivers are not only professional but also treat my father with so much respect and kindness. Highly recommended!",
     name: "Rajiv K.",
     role: "Working Professional",
-    image: "/generated-images/target-nri.png"
+    image: "/generated-images/target-nri.webp"
   },
   {
     quote:
       "Excellent support and regular updates. We feel confident knowing our mother is in safe and caring hands.",
     name: "Anita P.",
     role: "Daughter, Hyderabad",
-    image: "/generated-images/contact-caregiver.png"
+    image: "/generated-images/contact-caregiver.webp"
   }
 ];
 

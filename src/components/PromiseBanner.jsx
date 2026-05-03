@@ -8,7 +8,7 @@ export default function PromiseBanner() {
         <Reveal>
           <div className="grid items-center overflow-hidden rounded-2xl bg-[#fff0e8] md:grid-cols-[220px_1fr_170px]">
             <div className="flex h-full items-end justify-center pt-6">
-              <img src="/generated-images/hanuman-promise.png" alt="Hanuman caring illustration" className="h-36 object-contain" />
+              <img src="/generated-images/hanuman-promise.webp" alt="Hanuman caring illustration" className="h-36 object-contain" />
             </div>
             <div className="px-7 py-8 text-center md:text-left">
               <h2 className="text-2xl font-bold text-[#f45113]">Our Promise</h2>

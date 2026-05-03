@@ -7,19 +7,19 @@ const services = [
     icon: Ambulance,
     title: "Emergency Response Support",
     description: "Certified professionals available instantly to handle urgent situations.",
-    image: "/generated-images/service-emergency.png"
+    image: "/generated-images/service-emergency.webp"
   },
   {
     icon: Building2,
     title: "Hospital & Health Check Assistance",
     description: "We help with hospitalizations and coordinate health visits seamlessly.",
-    image: "/generated-images/service-hospital.png"
+    image: "/generated-images/service-hospital.webp"
   },
   {
     icon: Home,
     title: "Home & Emotional Support",
     description: "Regular visits, check-ins, and care designed for peace of mind.",
-    image: "/generated-images/service-home.png"
+    image: "/generated-images/service-home.webp"
   }
 ];
 
