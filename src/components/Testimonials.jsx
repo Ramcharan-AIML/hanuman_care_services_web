@@ -1,5 +1,6 @@
+import { useRef } from "react";
 import { ChevronLeft, ChevronRight, Quote, Star } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 import { Container, Eyebrow, Reveal } from "./ui.jsx";
 
 const testimonials = [
@@ -26,63 +27,89 @@ const testimonials = [
   }
 ];
 
+const TestimonialCard = ({ item, index }) => {
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start end", "end start"]
+  });
+
+  // Staggered parallax to create an arch or V shape during scroll
+  const yOffsets = [
+    [40, -40],
+    [80, -80],
+    [40, -40]
+  ];
+  const y = useTransform(scrollYProgress, [0, 1], yOffsets[index % 3]);
+
+  return (
+    <Reveal delay={index * 0.05} className="h-full">
+      <motion.div style={{ y }} className="h-full">
+        <motion.article
+          ref={ref}
+          whileHover={{ y: -8 }}
+          className="flex h-full flex-col rounded-[32px] border border-white/60 bg-white/70 p-10 shadow-[0_12px_40px_rgba(0,0,0,0.04)] backdrop-blur-xl transition-all duration-300 hover:shadow-[0_20px_50px_rgba(244,81,19,0.08)]"
+        >
+          <Quote className="h-10 w-10 fill-[#f45113] text-[#f45113]" />
+          <p className="mt-8 text-base leading-8 text-dark/80 flex-1">"{item.quote}"</p>
+          <div className="mt-8 flex text-[#f59e0b]">
+            {Array.from({ length: 5 }).map((_, starIndex) => (
+              <Star key={starIndex} className="h-5 w-5 fill-current" />
+            ))}
+          </div>
+          <div className="mt-8 flex items-center gap-4 border-t border-dark/5 pt-6">
+            <img src={item.image} alt={item.name} className="h-14 w-14 rounded-full object-cover shadow-sm" />
+            <div>
+              <p className="text-base font-bold text-dark">{item.name}</p>
+              <p className="text-sm text-muted">{item.role}</p>
+            </div>
+          </div>
+        </motion.article>
+      </motion.div>
+    </Reveal>
+  );
+};
+
 export default function Testimonials() {
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-[#fafaf9] py-12 md:py-14">
       <Container>
         <Reveal className="text-center">
           <Eyebrow>What Families Say</Eyebrow>
-          <h2 className="text-3xl font-semibold text-[#071526] md:text-4xl">
+          <h2 className="text-4xl font-bold text-[#071526] md:text-5xl">
             Real Stories, Real Peace of Mind
           </h2>
-          <p className="mt-4 text-sm text-muted">Trusted by families who chose us for their loved ones.</p>
+          <p className="mt-6 text-lg text-muted">Trusted by families who chose us for their loved ones.</p>
         </Reveal>
 
-        <div className="relative mt-10">
+        <div className="relative mt-16">
           <button
             type="button"
             aria-label="Previous testimonial"
-            className="absolute -left-2 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[#f45113] text-white shadow-glow md:flex lg:-left-10"
+            className="absolute -left-4 top-1/2 z-10 hidden h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#f45113] shadow-lg md:flex lg:-left-12 hover:bg-[#f45113] hover:text-white transition-colors border border-border"
           >
             <ChevronLeft className="h-6 w-6" />
           </button>
-          <div className="grid gap-7 md:grid-cols-3">
+          
+          <div className="grid gap-8 md:grid-cols-3">
             {testimonials.map((item, index) => (
-              <Reveal key={item.name} delay={index * 0.05}>
-                <motion.article
-                  whileHover={{ y: -6 }}
-                  className="min-h-[300px] rounded-2xl border border-border bg-white p-8 shadow-sm"
-                >
-                  <Quote className="h-8 w-8 fill-[#f45113] text-[#f45113]" />
-                  <p className="mt-6 text-sm leading-7 text-dark/80">"{item.quote}"</p>
-                  <div className="mt-6 flex text-[#f59e0b]">
-                    {Array.from({ length: 5 }).map((_, starIndex) => (
-                      <Star key={starIndex} className="h-4 w-4 fill-current" />
-                    ))}
-                  </div>
-                  <div className="mt-7 flex items-center gap-4">
-                    <img src={item.image} alt={item.name} className="h-12 w-12 rounded-full object-cover" />
-                    <div>
-                      <p className="text-sm font-bold text-dark">{item.name}</p>
-                      <p className="text-xs text-muted">{item.role}</p>
-                    </div>
-                  </div>
-                </motion.article>
-              </Reveal>
+              <TestimonialCard key={item.name} item={item} index={index} />
             ))}
           </div>
+
           <button
             type="button"
             aria-label="Next testimonial"
-            className="absolute -right-2 top-1/2 z-10 hidden h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-[#f45113] text-white shadow-glow md:flex lg:-right-10"
+            className="absolute -right-4 top-1/2 z-10 hidden h-14 w-14 -translate-y-1/2 items-center justify-center rounded-full bg-white text-[#f45113] shadow-lg md:flex lg:-right-12 hover:bg-[#f45113] hover:text-white transition-colors border border-border"
           >
             <ChevronRight className="h-6 w-6" />
           </button>
         </div>
-        <div className="mt-6 flex justify-center gap-2">
-          <span className="h-2 w-2 rounded-full bg-primary" />
-          <span className="h-2 w-2 rounded-full bg-border" />
-          <span className="h-2 w-2 rounded-full bg-border" />
+        
+        <div className="mt-12 flex justify-center gap-3">
+          <span className="h-2.5 w-8 rounded-full bg-[#f45113]" />
+          <span className="h-2.5 w-2.5 rounded-full bg-border" />
+          <span className="h-2.5 w-2.5 rounded-full bg-border" />
         </div>
       </Container>
     </section>

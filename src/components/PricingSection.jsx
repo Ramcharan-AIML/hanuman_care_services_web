@@ -45,7 +45,7 @@ const trust = [
 
 export default function PricingSection() {
   return (
-    <section className="bg-white py-16 md:py-20">
+    <section className="bg-white py-10 md:py-12">
       <Container>
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>Flexible Pricing & Plans</Eyebrow>

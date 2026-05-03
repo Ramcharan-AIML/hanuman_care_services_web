@@ -25,7 +25,7 @@ const services = [
 
 export default function ServicesSection() {
   return (
-    <section id="services" className="relative bg-white py-16 md:py-20">
+    <section id="services" className="relative bg-white py-10 md:py-14">
       <div className="absolute -right-20 -top-28 h-60 w-80 rounded-bl-[100%] bg-orange-100/70" />
       <Container className="relative">
         <Reveal className="mx-auto max-w-3xl text-center">

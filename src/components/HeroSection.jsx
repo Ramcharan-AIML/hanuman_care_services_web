@@ -342,7 +342,7 @@ export default function HeroSection() {
   const fadeOutOpacity = useTransform(scrollY, [0, 500], [1, 0]);
 
   return (
-    <section className="relative bg-white pb-16 md:pb-20">
+    <section className="relative bg-[#fafaf9]">
       <div className="mx-auto w-full max-w-[1536px] px-0 sm:px-4 lg:px-0">
         <div className="relative overflow-hidden bg-[#fff8f2] shadow-sm md:rounded-[2px] lg:h-[calc(100vh-96px)] lg:min-h-[820px] lg:max-h-[928px] pb-12 sm:pb-16 lg:pb-0">
           <motion.img

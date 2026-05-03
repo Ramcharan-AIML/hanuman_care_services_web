@@ -101,7 +101,7 @@ const ProblemCard = ({ item }) => {
 
 export default function ProblemSection() {
   return (
-    <section className="relative overflow-hidden bg-[#fafaf9] py-24 md:py-32">
+    <section className="relative overflow-hidden bg-[#fafaf9] pt-10 pb-24 md:pt-12 md:pb-32">
       {/* Ambient background shapes for glassmorphism to blur against */}
       <div className="absolute -top-40 right-0 h-96 w-96 rounded-bl-[100%] bg-orange-100/40" />
       <div className="absolute top-1/2 -left-20 h-96 w-96 rounded-full bg-orange-100/30 blur-3xl" />
