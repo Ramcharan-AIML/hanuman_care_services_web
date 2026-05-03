@@ -73,9 +73,37 @@ const UserCard = ({ user, index }) => {
   );
 };
 
+function AnimatedAmbientBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <motion.div
+        animate={{ 
+          scale: [1, 1.25, 1], 
+          opacity: [0.4, 0.7, 0.4],
+          x: [0, 30, 0],
+          y: [0, -30, 0]
+        }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-[5%] -left-[5%] h-[700px] w-[700px] rounded-full bg-gradient-to-br from-[#f59e0b]/30 to-[#f45113]/20 blur-[100px]"
+      />
+      <motion.div
+        animate={{ 
+          scale: [1, 1.15, 1], 
+          opacity: [0.5, 0.8, 0.5],
+          x: [0, -40, 0],
+          y: [0, 20, 0]
+        }}
+        transition={{ duration: 11, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute bottom-[0%] -right-[5%] h-[600px] w-[600px] rounded-full bg-gradient-to-tl from-[#f45113]/30 to-[#f59e0b]/20 blur-[90px]"
+      />
+    </div>
+  );
+}
+
 export default function TargetUsers() {
   return (
     <section className="relative overflow-hidden bg-[#fafaf9] py-12 md:py-14">
+      <AnimatedAmbientBackground />
       <Container className="relative z-10">
         <Reveal className="mx-auto max-w-2xl text-center">
           <Eyebrow>We Care For</Eyebrow>

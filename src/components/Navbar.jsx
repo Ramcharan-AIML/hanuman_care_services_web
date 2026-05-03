@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Menu, Phone, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
 import { PrimaryButton } from "./ui.jsx";
 
 const navItems = [
@@ -30,16 +31,16 @@ export default function Navbar() {
       }`}
     >
       <div className="mx-auto flex h-[96px] w-full max-w-[1536px] items-center justify-between px-5 py-4 md:px-10 lg:px-12">
-        <a href="#" className="flex items-center gap-3">
+        <a href="#" className="flex items-center gap-2 md:gap-3">
           <img
             src="/generated-images/logo-hanuman.png"
             alt="Hanuman Care Services Logo"
-            className="w-[64px] h-auto object-contain md:w-[62px]"
+            className="w-[48px] sm:w-[54px] md:w-[62px] h-auto object-contain"
           />
           <img
             src="/generated-images/hanuman-name.png"
             alt="Hanuman Care Services Name"
-            className="w-[120px] h-auto object-contain md:w-[150px]"
+            className="w-[96px] sm:w-[110px] md:w-[150px] h-auto object-contain"
           />
         </a>
 
@@ -64,25 +65,35 @@ export default function Navbar() {
         </button>
       </div>
 
-      {open ? (
-        <div className="border-t border-orange-100 bg-white px-4 py-4 shadow-lg lg:hidden">
-          <div className="mx-auto flex max-w-[1240px] flex-col gap-3">
-            {navItems.map((item) => (
-              <a
-                key={item.label}
-                href={item.href}
-                onClick={() => setOpen(false)}
-                className="rounded-xl px-4 py-3 text-sm font-semibold text-dark hover:bg-cream"
-              >
-                {item.label}
-              </a>
-            ))}
-            <PrimaryButton icon={Phone} className="w-full">
-              Get Help Now
-            </PrimaryButton>
-          </div>
-        </div>
-      ) : null}
+      <AnimatePresence>
+        {open && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            transition={{ duration: 0.3, ease: "easeInOut" }}
+            className="overflow-hidden border-t border-orange-100 bg-white shadow-lg lg:hidden"
+          >
+            <div className="px-4 py-4">
+              <div className="mx-auto flex max-w-[1240px] flex-col gap-3">
+                {navItems.map((item) => (
+                  <a
+                    key={item.label}
+                    href={item.href}
+                    onClick={() => setOpen(false)}
+                    className="rounded-xl px-4 py-3 text-sm font-semibold text-dark hover:bg-cream"
+                  >
+                    {item.label}
+                  </a>
+                ))}
+                <PrimaryButton icon={Phone} className="w-full">
+                  Get Help Now
+                </PrimaryButton>
+              </div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </header>
   );
 }

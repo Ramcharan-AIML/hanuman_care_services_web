@@ -70,9 +70,37 @@ const TestimonialCard = ({ item, index }) => {
   );
 };
 
+function AnimatedAmbientBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <motion.div
+        animate={{ 
+          scale: [1, 1.2, 1], 
+          opacity: [0.4, 0.7, 0.4],
+          x: [0, -30, 0],
+          y: [0, 30, 0]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute top-[20%] -right-[10%] h-[800px] w-[800px] rounded-full bg-gradient-to-tr from-[#f45113]/25 to-[#f59e0b]/15 blur-[110px]"
+      />
+      <motion.div
+        animate={{ 
+          scale: [1, 1.3, 1], 
+          opacity: [0.5, 0.8, 0.5],
+          x: [0, 40, 0],
+          y: [0, -20, 0]
+        }}
+        transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute -bottom-[10%] -left-[5%] h-[600px] w-[600px] rounded-full bg-gradient-to-br from-[#f59e0b]/30 to-[#f45113]/20 blur-[100px]"
+      />
+    </div>
+  );
+}
+
 export default function Testimonials() {
   return (
-    <section className="bg-[#fafaf9] py-12 md:py-14">
+    <section className="relative overflow-hidden bg-[#fafaf9] py-12 md:py-14">
+      <AnimatedAmbientBackground />
       <Container>
         <Reveal className="text-center">
           <Eyebrow>What Families Say</Eyebrow>

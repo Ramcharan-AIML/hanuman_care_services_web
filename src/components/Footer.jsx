@@ -88,7 +88,7 @@ export default function Footer() {
       </Container>
       <div className="border-t border-white/10">
         <Container className="flex flex-col gap-4 py-6 text-xs text-white/75 md:flex-row md:items-center md:justify-between">
-          <p>© 2024 Hanuman Care Services. All rights reserved.</p>
+          <p>© 2026 Hanuman Care Services. All rights reserved.</p>
           <div className="flex gap-5">
             <a href="#" className="hover:text-primary">Privacy Policy</a>
             <span>|</span>

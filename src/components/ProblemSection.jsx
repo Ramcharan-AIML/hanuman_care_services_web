@@ -99,13 +99,47 @@ const ProblemCard = ({ item }) => {
   );
 };
 
+function AnimatedAmbientBackground() {
+  return (
+    <div className="absolute inset-0 overflow-hidden pointer-events-none">
+      <motion.div
+        animate={{ 
+          scale: [1, 1.25, 1], 
+          opacity: [0.5, 0.8, 0.5],
+          x: [0, -30, 0],
+          y: [0, 30, 0]
+        }}
+        transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
+        className="absolute -top-[10%] -right-[5%] h-[600px] w-[600px] rounded-full bg-gradient-to-br from-[#f45113]/30 to-[#f59e0b]/20 blur-[90px]"
+      />
+      <motion.div
+        animate={{ 
+          scale: [1, 1.3, 1], 
+          opacity: [0.4, 0.7, 0.4],
+          x: [0, 40, 0],
+          y: [0, -20, 0]
+        }}
+        transition={{ duration: 10, repeat: Infinity, ease: "easeInOut", delay: 1 }}
+        className="absolute top-[30%] -left-[10%] h-[500px] w-[500px] rounded-full bg-gradient-to-tr from-[#f59e0b]/30 to-[#f45113]/20 blur-[100px]"
+      />
+      <motion.div
+        animate={{ 
+          scale: [1, 1.15, 1], 
+          opacity: [0.5, 0.8, 0.5],
+          x: [0, 20, 0],
+          y: [0, 40, 0]
+        }}
+        transition={{ duration: 9, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+        className="absolute -bottom-[10%] right-[10%] h-[700px] w-[700px] rounded-full bg-gradient-to-tl from-[#f45113]/25 to-[#f59e0b]/15 blur-[110px]"
+      />
+    </div>
+  );
+}
+
 export default function ProblemSection() {
   return (
     <section className="relative overflow-hidden bg-[#fafaf9] pt-10 pb-24 md:pt-12 md:pb-32">
-      {/* Ambient background shapes for glassmorphism to blur against */}
-      <div className="absolute -top-40 right-0 h-96 w-96 rounded-bl-[100%] bg-orange-100/40" />
-      <div className="absolute top-1/2 -left-20 h-96 w-96 rounded-full bg-orange-100/30 blur-3xl" />
-      <div className="absolute -bottom-40 right-20 h-[600px] w-[600px] rounded-full bg-orange-50/50 blur-3xl" />
+      <AnimatedAmbientBackground />
 
       <Container className="relative z-10">
         <Reveal className="mx-auto max-w-2xl text-center">

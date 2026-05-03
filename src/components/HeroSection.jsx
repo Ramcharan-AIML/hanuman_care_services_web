@@ -192,23 +192,23 @@ function StatsBar() {
       initial={{ opacity: 0, y: 22 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.65, delay: 0.85, ease: "easeOut" }}
-      className="relative z-40 mx-auto -mt-[86px] grid w-[calc(100%-32px)] max-w-[1010px] grid-cols-1 overflow-hidden rounded-[22px] bg-white/86 shadow-[0_24px_70px_rgba(104,63,31,0.18)] backdrop-blur-xl sm:grid-cols-2 lg:grid-cols-4"
+      className="relative z-40 mx-auto -mt-[30px] sm:-mt-[50px] lg:-mt-[86px] grid w-[calc(100%-24px)] md:w-[calc(100%-32px)] max-w-[1010px] grid-cols-1 overflow-hidden rounded-[16px] md:rounded-[22px] bg-white/86 shadow-[0_24px_70px_rgba(104,63,31,0.18)] backdrop-blur-xl sm:grid-cols-2 lg:grid-cols-4"
     >
       {stats.map((stat, index) => {
         const Icon = stat.icon;
         return (
           <div
             key={stat.label}
-            className={`flex items-center gap-4 px-7 py-6 ${index !== 0 ? "lg:border-l lg:border-orange-100" : ""} ${
+            className={`flex items-center gap-3 md:gap-4 px-4 py-4 md:px-7 md:py-6 ${index !== 0 ? "lg:border-l lg:border-orange-100" : ""} ${
               index > 0 ? "border-t border-orange-100 sm:border-t-0" : ""
             } ${index > 1 ? "sm:border-t sm:border-orange-100 lg:border-t-0" : ""}`}
           >
-            <span className="flex h-14 w-14 shrink-0 items-center justify-center rounded-full bg-[#fff0e8]">
-              <Icon className="h-7 w-7 text-[#f45113]" strokeWidth={1.8} />
+            <span className="flex h-10 w-10 md:h-14 md:w-14 shrink-0 items-center justify-center rounded-full bg-[#fff0e8]">
+              <Icon className="h-5 w-5 md:h-7 md:w-7 text-[#f45113]" strokeWidth={1.8} />
             </span>
             <span>
-              <span className="block text-2xl font-bold leading-none text-[#071526]">{stat.value}</span>
-              <span className="mt-2 block text-sm text-dark">{stat.label}</span>
+              <span className="block text-lg md:text-2xl font-bold leading-none text-[#071526]">{stat.value}</span>
+              <span className="mt-1 md:mt-2 block text-xs md:text-sm text-dark">{stat.label}</span>
             </span>
           </div>
         );

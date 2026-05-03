@@ -52,32 +52,35 @@ export default function ContactSection() {
               </form>
             </div>
 
-            <div className="relative border-t border-border bg-cream p-7 md:p-10 lg:border-l lg:border-t-0">
-              <div className="relative z-10 max-w-[300px]">
-                <h2 className="text-2xl font-bold text-[#071526]">We're Just a Call Away</h2>
-                <span className="mt-3 block h-px w-12 bg-primary" />
-                <div className="mt-8 space-y-6">
+            <div className="relative overflow-hidden bg-[#071526] p-8 md:p-12 lg:p-14">
+              {/* Premium ambient glows */}
+              <div className="absolute -right-20 -top-20 h-64 w-64 rounded-full bg-[#f45113]/30 blur-[80px]" />
+              <div className="absolute -bottom-32 -left-20 h-80 w-80 rounded-full bg-[#f59e0b]/20 blur-[100px]" />
+              
+              <div className="relative z-10 h-full flex flex-col">
+                <h2 className="text-3xl font-bold text-white tracking-tight">We're Just a Call Away</h2>
+                <span className="mt-4 block h-1 w-12 rounded-full bg-[#f45113]" />
+                <p className="mt-5 text-base leading-relaxed text-white/70 max-w-[380px]">
+                  Prefer to speak with us directly? Our dedicated care team is available 24/7 to answer your questions and provide immediate assistance.
+                </p>
+                
+                <div className="mt-12 space-y-8 flex-1">
                   {contact.map((item) => {
                     const Icon = item.icon;
                     return (
-                      <div key={item.title} className="flex gap-4">
-                        <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-[#fff0e8]">
-                          <Icon className="h-6 w-6 text-primary" strokeWidth={1.8} />
+                      <div key={item.title} className="flex items-start gap-5 group">
+                        <div className="flex h-14 w-14 shrink-0 items-center justify-center rounded-2xl bg-white/5 border border-white/10 shadow-[0_8px_30px_rgba(0,0,0,0.12)] backdrop-blur-md transition-all duration-300 group-hover:bg-white/10 group-hover:scale-105 group-hover:border-white/20">
+                          <Icon className="h-6 w-6 text-[#f45113]" strokeWidth={1.8} />
                         </div>
-                        <div>
-                          <p className="text-sm font-bold text-dark">{item.title}</p>
-                          <p className="mt-1 text-sm leading-6 text-dark">{item.text}</p>
+                        <div className="flex flex-col justify-center pt-1">
+                          <p className="text-xs font-bold tracking-widest text-white/40 uppercase">{item.title}</p>
+                          <p className="mt-1 text-base font-medium text-white/90">{item.text}</p>
                         </div>
                       </div>
                     );
                   })}
                 </div>
               </div>
-              <img
-                src="/generated-images/contact-caregiver.png"
-                alt="Care support specialist"
-                className="bottom-0 right-0 mt-8 max-h-[360px] w-full object-contain object-bottom lg:absolute lg:mt-0 lg:w-[48%]"
-              />
             </div>
           </div>
         </Reveal>
