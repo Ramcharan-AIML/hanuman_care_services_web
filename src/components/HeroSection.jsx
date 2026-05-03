@@ -327,7 +327,7 @@ export default function HeroSection() {
   return (
     <section className="relative bg-white pb-16 md:pb-20">
       <div className="mx-auto w-full max-w-[1536px] px-0 sm:px-4 lg:px-0">
-        <div className="relative min-h-[860px] overflow-hidden bg-[#fff8f2] shadow-sm md:min-h-[920px] md:rounded-[2px] lg:h-[calc(100vh-96px)] lg:min-h-[820px] lg:max-h-[928px]">
+        <div className="relative overflow-hidden bg-[#fff8f2] shadow-sm md:rounded-[2px] lg:h-[calc(100vh-96px)] lg:min-h-[820px] lg:max-h-[928px] pb-12 sm:pb-16 lg:pb-0">
           <img
             src="/generated-images/background-image-hero.png"
             alt=""
@@ -372,7 +372,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
-            className="absolute inset-x-0 bottom-0 z-10 mx-auto flex justify-center pointer-events-none px-4 md:px-0"
+            className="relative z-10 mx-auto mt-8 flex w-full justify-center pointer-events-none px-4 sm:mt-12 md:px-0 lg:absolute lg:inset-x-0 lg:bottom-0 lg:mt-0"
           >
             <img
               src="/generated-images/women-aunt-hero.png"
