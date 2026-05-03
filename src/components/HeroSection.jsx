@@ -9,7 +9,7 @@ import {
   Star,
   UsersRound
 } from "lucide-react";
-import { motion } from "framer-motion";
+import { motion, useScroll, useTransform } from "framer-motion";
 
 const benefitItems = [
   {
@@ -68,9 +68,10 @@ function StoreImageButton({ type }) {
   );
 }
 
-function BenefitRail() {
+function BenefitRail({ parallaxStyle }) {
   return (
     <motion.div
+      style={parallaxStyle}
       initial={{ opacity: 0, x: -28 }}
       animate={{ opacity: 1, x: 0 }}
       transition={{ duration: 0.65, delay: 0.45, ease: "easeOut" }}
@@ -99,9 +100,10 @@ function BenefitRail() {
   );
 }
 
-function PhoneMockup() {
+function PhoneMockup({ parallaxStyle }) {
   return (
     <motion.div
+      style={parallaxStyle}
       initial={{ opacity: 0, x: 34, y: 18 }}
       animate={{ opacity: 1, x: 0, y: 0 }}
       transition={{ duration: 0.75, delay: 0.55, ease: "easeOut" }}
@@ -324,19 +326,36 @@ function HeroGlow() {
 }
 
 export default function HeroSection() {
+  const { scrollY } = useScroll();
+  
+  // Parallax transforms for horizontal and vertical effects
+  const bgY = useTransform(scrollY, [0, 1000], ["0%", "15%"]);
+  const imageY = useTransform(scrollY, [0, 1000], [0, 80]);
+  
+  // Text parallax
+  const textY = useTransform(scrollY, [0, 800], [0, 120]);
+  const textOpacity = useTransform(scrollY, [0, 400], [1, 0]);
+  
+  // Horizontal Slide-Out effects
+  const slideLeftX = useTransform(scrollY, [0, 600], [0, -300]);
+  const slideRightX = useTransform(scrollY, [0, 600], [0, 300]);
+  const fadeOutOpacity = useTransform(scrollY, [0, 500], [1, 0]);
+
   return (
     <section className="relative bg-white pb-16 md:pb-20">
       <div className="mx-auto w-full max-w-[1536px] px-0 sm:px-4 lg:px-0">
         <div className="relative overflow-hidden bg-[#fff8f2] shadow-sm md:rounded-[2px] lg:h-[calc(100vh-96px)] lg:min-h-[820px] lg:max-h-[928px] pb-12 sm:pb-16 lg:pb-0">
-          <img
+          <motion.img
+            style={{ y: bgY }}
             src="/generated-images/background-image-hero.png"
             alt=""
             aria-hidden="true"
-            className="absolute inset-0 h-full w-full object-cover object-top"
+            className="absolute inset-0 h-[115%] w-full object-cover object-top"
           />
           <div className="absolute inset-x-0 top-0 h-[46%] bg-gradient-to-b from-white/40 via-white/8 to-transparent" />
 
           <motion.div
+            style={{ y: textY, opacity: textOpacity }}
             initial={{ opacity: 0, y: 26 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.65, ease: "easeOut" }}
@@ -362,13 +381,14 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
-          <BenefitRail />
-          <PhoneMockup />
+          <BenefitRail parallaxStyle={{ x: slideLeftX, opacity: fadeOutOpacity }} />
+          <PhoneMockup parallaxStyle={{ x: slideRightX, opacity: fadeOutOpacity }} />
 
           {/* Warm ambient glow behind the hero image */}
           <HeroGlow />
 
           <motion.div
+            style={{ y: imageY }}
             initial={{ opacity: 0, y: 80 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.9, ease: [0.22, 1, 0.36, 1], delay: 0.18 }}
@@ -382,6 +402,7 @@ export default function HeroSection() {
           </motion.div>
 
           <motion.div
+            style={{ x: slideRightX, opacity: fadeOutOpacity }}
             initial={{ opacity: 0, scale: 0.92 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.65, delay: 0.72, ease: "easeOut" }}
