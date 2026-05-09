@@ -414,6 +414,7 @@ export default function HeroSection() {
             />
           </motion.div>
 
+
           <motion.div
             style={{ x: slideRightX, opacity: fadeOutOpacity }}
             initial={{ opacity: 0, scale: 0.92 }}
@@ -429,6 +430,7 @@ export default function HeroSection() {
               </p>
             </div>
           </motion.div>
+
 
         </div>
         <StatsBar />
