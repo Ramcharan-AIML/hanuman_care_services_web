@@ -325,6 +325,8 @@ function HeroGlow() {
   );
 }
 
+
+
 export default function HeroSection() {
   const { scrollY } = useScroll();
   
