@@ -387,8 +387,12 @@ export default function HeroSection() {
             </div>
           </motion.div>
 
+
+
           <BenefitRail parallaxStyle={{ x: slideLeftX, opacity: fadeOutOpacity }} />
           <PhoneMockup parallaxStyle={{ x: slideRightX, opacity: fadeOutOpacity }} />
+
+
 
           {/* Warm ambient glow behind the hero image */}
           <HeroGlow />
