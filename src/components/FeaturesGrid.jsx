@@ -30,6 +30,7 @@ export default function FeaturesGrid() {
         {features.map((feature, index) => {
           const Icon = feature.icon;
           return (
+
             <div
               key={feature.label}
               className={`flex min-h-24 flex-col items-center justify-center text-center p-2 ${
@@ -39,6 +40,7 @@ export default function FeaturesGrid() {
               <Icon className="mb-3 md:mb-4 h-8 w-8 md:h-10 md:w-10 text-primary" strokeWidth={1.8} />
               <p className="text-sm sm:text-base font-bold text-[#071526]">{feature.label}</p>
             </div>
+            
           );
         })}
       </div>
