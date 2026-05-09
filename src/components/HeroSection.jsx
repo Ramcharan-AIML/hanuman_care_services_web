@@ -358,6 +358,8 @@ export default function HeroSection() {
           />
           <div className="absolute inset-x-0 top-0 h-[46%] bg-gradient-to-b from-white/40 via-white/8 to-transparent" />
 
+
+
           <motion.div
             style={{ y: textY, opacity: textOpacity }}
             initial={{ opacity: 0, y: 26 }}
