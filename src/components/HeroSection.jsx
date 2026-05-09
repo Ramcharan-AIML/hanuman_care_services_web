@@ -423,6 +423,7 @@ export default function HeroSection() {
             className="absolute right-8 top-[468px] z-40 hidden h-[112px] w-[112px] items-center justify-center rounded-full bg-[#f47b00] text-center text-white shadow-[0_24px_50px_rgba(244,123,0,0.28)] lg:flex xl:right-[88px]"
           >
             <div>
+              
               <ShieldCheck className="mx-auto h-9 w-9" strokeWidth={1.9} />
               <p className="mt-2 text-sm font-bold leading-5">
                 Safe, Secure
